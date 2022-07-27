@@ -192,3 +192,14 @@ No destructor overloading is not possible. Destructors take no arguments, so the
 
 16. What do you mean by call by value and call by reference?
 
+In call by value method, we pass a copy of the parameter is passed to the functions. For these copied values a new memory is assigned and changes made to these values do not reflect the variable in the main function.
+
+In call by reference method, we pass the address of the variable and the address is used to access the actual argument used in the function call. So changes made in the parameter alter the passing argument.
+
+17. What is an abstract class and when do you use it?
+
+A class is called an abstract class whose objects can never be created. Such a class exists as a parent for the derived classes. We can make a class abstract by placing a pure virtual function in the class.
+
+18. What are destructors in C++?
+
+A constructor is automatically called when an object is first created. Similarly when an object is destroyed a function called destructor automatically gets called. A destructor has the same name as the constructor (which is the same as the class name) but is preceded by a tilde.
