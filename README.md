@@ -110,7 +110,71 @@ int main(){
  return 0;
 }
 
-8. Tell me abo
+8. Tell me about virtual function
 
+Virtual function is a member function in the base class that you redefine in a derived class. A virtual function is declared using the virtual keyword. When the function is made virtual, C++ determines which function is to be invoked at the runtime based on the type of the object pointed by the base class pointer.
+
+9. Compare compile time polymorphism and Runtime polymorphism
+
+The main difference between compile-time and runtime polymorphism is provided below:
+
+![Screenshot (963)](https://user-images.githubusercontent.com/81725794/181153435-9af9df17-f72d-49e0-b25f-19f48d32707d.png)
+
+10. What do you know about friend class and friend function?
+
+A friend class can access private, protected, and public members of other classes in which it is declared as friends.
+
+Like friend class, friend function can also access private, protected, and public members. But, Friend functions are not member functions.
+
+For example -
+
+class A{
+ private:
+  int data_a;
+ public:
+  A(int x){
+   data_a=x;
+  }
+  friend int fun(A, B);
+}
+class B{
+ private:
+  int data_b;
+ public:
+  A(int x){
+   data_b=x;
+  }
+  friend int fun(A, B);
+}
+int fun(A a, B b){
+ return a.data_a+b.data_b;
+}
+int main(){
+ A a(10);
+ B b(20);
+ cout<<fun(a,b)<<endl;
+ return 0;
+}
+Here we can access the private data of class A and class B.
+
+11. What are the C++ access specifiers?
+
+In C++ there are the following access specifiers:
+
+Public: All data members and member functions are accessible outside the class.
+
+Protected: All data members and member functions are accessible inside the class and to the derived class.
+
+Private: All data members and member functions are not accessible outside the class.
+
+12. Define inline function
+
+If a function is inline, the compiler places a copy of the code of that function at each point where the function is called at compile time. One of the important advantages of using an inline function is that it eliminates the function calling overhead of a traditional function.
+
+13. What is a reference in C++?
+
+A reference is like a pointer. It is another name of an already existing variable. Once a reference name is initialized with a variable, that variable can be accessed by the variable name or reference name both.
+
+For example-
 
 
