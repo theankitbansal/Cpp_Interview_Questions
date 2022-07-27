@@ -203,3 +203,67 @@ A class is called an abstract class whose objects can never be created. Such a c
 18. What are destructors in C++?
 
 A constructor is automatically called when an object is first created. Similarly when an object is destroyed a function called destructor automatically gets called. A destructor has the same name as the constructor (which is the same as the class name) but is preceded by a tilde.
+
+Example:
+
+class A{
+ private:
+  int val;
+ public:
+  A(int x){           
+   val=x;
+  }
+  A(){                
+  }
+  ~A(){                  //destructor
+  }
+}
+int main(){
+ A a(3);     
+ return 0;
+}
+
+19. What are the static members and static member functions?
+
+When a variable in a class is declared static, space for it is allocated for the lifetime of the program. No matter how many objects of that class have been created, there is only one copy of the static member. So same static member can be accessed by all the objects of that class.
+
+A static member function can be called even if no objects of the class exist and the static function are accessed using only the class name and the scope resolution operator ::
+
+20. Explain inheritance
+
+Inheritance is the process of creating new classes, called derived classes, from existing classes. These existing classes are called base classes. The derived classes inherit all the capabilities of the base class but can add new features and refinements of their own.
+
+Example-
+![image](https://user-images.githubusercontent.com/81725794/181153720-c0937ba5-e2ef-435c-a291-6b29bb547e69.png)
+
+Class Bus, Class Car, and Class Truck inherit the properties of Class Vehicle.
+
+The most important thing about inheritance is that it permits code reusability.
+
+C++ Interview Questions For Experienced
+
+21. What is a copy constructor?
+
+A copy constructor is a member function that initializes an object using another object of the same class.
+
+Example-
+
+class A{
+int x,y;
+A(int x, int y){
+ this->x=x;
+ this->y=y;
+}
+
+};
+int main(){
+A a1(2,3);
+A a2=a1;     //default copy constructor is called
+return 0;
+}
+We can define our copy constructor. If we don’t define a copy constructor then the default copy constructor is called.
+
+22. What is the difference between shallow copy and deep copy?
+
+The difference between shallow copy and a deep copy is given below:
+
