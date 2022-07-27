@@ -267,3 +267,114 @@ We can define our copy constructor. If we don’t define a copy constructor then
 
 The difference between shallow copy and a deep copy is given below:
 
+![Screenshot (964)](https://user-images.githubusercontent.com/81725794/181153879-de3a1dcf-a521-43a0-8a85-f6b6bdf3bb03.png)
+
+23. What is the difference between virtual functions and pure virtual functions?
+
+A virtual function is a member function in the base class that you redefine in a derived class. It is declared using the virtual keyword.
+
+Example-
+
+class base{
+public:
+ virtual void fun(){
+
+ }
+};
+A pure virtual function is a function that has no implementation and is declared by assigning 0. It has no body.
+
+Example-
+
+class base{
+public:
+ virtual void fun()=0;
+};
+Here, = sign has got nothing to do with the assignment, and value 0 is not assigned to anything. It is used to simply tell the compiler that a function will be pure and it will not have anybody.
+
+24. If class D is derived from a base class B. When creating an object of type D in what order would the constructors of these classes get called?
+
+The derived class has two parts, a base part, and a derived part.  When C++ constructs derived objects, it does so in phases. First, the most-base class(at the top of the inheritance tree) is constructed. Then each child class is constructed in order until the most-child class is constructed last. 
+So the first Constructor of class B will be called and then the constructor of class D will be called.
+
+During the destruction exactly reverse order is followed. That is destructor starts at the most-derived class and works its way down to base class.
+So the first destructor of class D will be called and then the destructor of class B will be called.
+
+25. Can we call a virtual function from a constructor?
+
+Yes, we can call a virtual function from a constructor. But the behavior is a little different in this case. When a virtual function is called, the virtual call is resolved at runtime. It is always the member function of the current class that gets called. That is the virtual machine doesn’t work within the constructor.
+
+For example-
+
+class base{
+ private:
+  int value;
+ public:
+  base(int x){
+   value=x;
+  }
+  virtual void fun(){
+   
+  }
+}
+
+class derived{
+ private:
+  int a;
+ public:
+  derived(int x, int y):base(x){
+   base *b;
+   b=this;
+   b->fun();      //calls derived::fun()
+  }
+  void fun(){
+   cout<<”fun inside derived class”<<endl;
+  }
+}
+
+26. What are void pointers?
+
+A void pointer is a pointer which is having no datatype associated with it. It can hold addresses of any type.
+
+For example-
+
+void *ptr; 
+char *str;
+p=str;                // no error 
+str=p;                // error because of type mismatch
+We can assign a pointer of any type to a void pointer but the reverse is not true unless you typecast it as
+
+str=(char*) ptr;
+
+
+27. What is this pointer in C++?
+
+The member functions of every object have a pointer named this, which points to the object itself. The value of this is set to the address of the object for which it is called. It can be used to access the data in the object it points to.
+
+Example
+
+class A{
+ private:
+  int value;
+ public:
+  void setvalue(int x){
+   this->value=x; 
+  }
+};
+
+int main(){
+ A a;
+ a.setvalue(5);
+ return 0;
+}
+
+28. How do you allocate and deallocate memory in C++?
+
+The new operator is used for memory allocation and deletes operator is used for memory deallocation in C++.
+
+For example-
+
+int value=new int;  		//allocates memory for storing 1 integer
+delete value;          		// deallocates memory taken by value
+
+int *arr=new int[10];    	//allocates memory for storing 10 int
+delete []arr;              	// deallocates memory occupied by arr
