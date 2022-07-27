@@ -177,4 +177,18 @@ A reference is like a pointer. It is another name of an already existing variabl
 
 For example-
 
+int x=10;
+int &ref=x;           //reference variable
+
+If we change the value of ref it will be reflected in x. Once a reference variable is initialized it cannot refer to any other variable. We can declare an array of pointers but an array of references is not possible.
+
+14. What do you mean by abstraction in C++?
+
+Abstraction is the process of showing the essential details to the user and hiding the details which we don’t want to show to the user or hiding the details which are irrelevant to a particular user.
+
+15. Is deconstructor overloading possible? If yes then explain and if no then why?
+
+No destructor overloading is not possible. Destructors take no arguments, so there’s only one way to destroy an object. That’s the reason destructor overloading is not possible.
+
+16. What do you mean by call by value and call by reference?
 
